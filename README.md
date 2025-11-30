@@ -44,95 +44,67 @@
 
 ## Вывод программы (пример реального выполнения)
 ```console
-Train PRESS ENTER TO STOP...1 MOVING TO Dushanbe
-Train 2 MOVING TO Dushanbe
-Train 3 MOVING TO Dushanbe
-Train 4 MOVING TO Dushanbe
-Train 5 MOVING TO Dushanbe
-Train 6 MOVING TO Dushanbe
-Train 7 MOVING TO Dushanbe
-Train 8 MOVING TO Dushanbe
-Train 5 ARRIVED at Dushanbe
-Train 5 LEAVING Dushanbe
-Train 5 MOVING TO Gissar
-Train 3 ARRIVED at Dushanbe
-Train 3 LEAVING Dushanbe
-Train 3 MOVING TO Gissar
-Train 2 ARRIVED at Dushanbe
-Train 2 LEAVING Dushanbe
-Train 2 MOVING TO Gissar
-Train 7 ARRIVED at Dushanbe
-Train 7 LEAVING Dushanbe
-Train 6 ARRIVED at Dushanbe
-Train 7 MOVING TO Gissar
-Train 6 LEAVING Dushanbe
-Train 6 MOVING TO Gissar
-Train 1 ARRIVED at Dushanbe
-Train 1 LEAVING Dushanbe
-Train 1 MOVING TO Gissar
-Train 8 ARRIVED at Dushanbe
-Train 8 LEAVING Dushanbe
-Train 8 MOVING TO Gissar
-Train 4 ARRIVED at Dushanbe
-Train 4 LEAVING Dushanbe
-Train 4 MOVING TO Gissar
-Train 5 ARRIVED at Gissar
-Train 5 LEAVING Gissar
-Train 5 MOVING TO Regar
-Train 3 ARRIVED at Gissar
-Train 3 LEAVING Gissar
-Train 3 MOVING TO Regar
-Train 2 ARRIVED at Gissar
-Train 2 LEAVING Gissar
-Train 2 MOVING TO Regar
-Train 7 ARRIVED at Gissar
-Train 7 LEAVING Gissar
-Train 7 MOVING TO Regar
-Train 6 ARRIVED at Gissar
-Train 6 LEAVING Gissar
-Train 6 MOVING TO Regar
-Train 1 ARRIVED at Gissar
-Train 1 LEAVING Gissar
-Train 1 MOVING TO Regar
-Train 8 ARRIVED at Gissar
-Train 8 LEAVING Gissar
-Train 8 MOVING TO Regar
-Train 4 ARRIVED at Gissar
-Train 4 LEAVING Gissar
-Train 4 MOVING TO Regar
-Train 5 ARRIVED at Regar
-Train 5 LEAVING Regar
-Train 5 MOVING TO Pakhtaabad
-Train 3 ARRIVED at Regar
-Train 3 LEAVING Regar
-Train 3 MOVING TO Pakhtaabad
-Train 2 ARRIVED at Regar
-Train 2 LEAVING Regar
-Train 2 MOVING TO Pakhtaabad
-Train 7 ARRIVED at Regar
-Train 7 LEAVING Regar
-Train 7 STOPPED
-Train 6 ARRIVED at Regar
-Train 6 LEAVING Regar
-Train 6 STOPPED
-Train 1 ARRIVED at Regar
-Train 1 LEAVING Regar
-Train 1 STOPPED
-Train 8 ARRIVED at Regar
-Train 8 LEAVING Regar
-Train 8 STOPPED
-Train 4 ARRIVED at Regar
-Train 4 LEAVING Regar
-Train 4 STOPPED
-Train 5 ARRIVED at Pakhtaabad
-Train 5 LEAVING Pakhtaabad
-Train 5 STOPPED
-Train 3 ARRIVED at Pakhtaabad
-Train 3 LEAVING Pakhtaabad
-Train 3 STOPPED
-Train 2 ARRIVED at Pakhtaabad
-Train 2 LEAVING Pakhtaabad
-Train 2 STOPPED
+PRESS ENTER TO STOP...
+[20:12:04] Train 1 MOVING TO Dushanbe
+[20:12:04] Train 2 MOVING TO Dushanbe
+[20:12:04] Train 6 MOVING TO Dushanbe
+[20:12:04] Train 4 MOVING TO Dushanbe
+[20:12:04] Train 5 MOVING TO Dushanbe
+[20:12:04] Train 3 MOVING TO Dushanbe
+[20:12:04] Train 7 MOVING TO Dushanbe
+[20:12:04] Train 8 MOVING TO Dushanbe
+[20:12:05] Train 6 ARRIVED at Dushanbe
+[20:12:07] Train 6 LEAVING Dushanbe
+[20:12:07] Train 6 MOVING TO Gissar
+[20:12:07] Train 1 ARRIVED at Dushanbe
+[20:12:08] Train 1 LEAVING Dushanbe
+[20:12:08] Train 1 MOVING TO Gissar
+[20:12:08] Train 4 ARRIVED at Dushanbe
+[20:12:10] Train 4 LEAVING Dushanbe
+[20:12:10] Train 4 MOVING TO Gissar
+[20:12:10] Train 2 ARRIVED at Dushanbe
+[20:12:11] Train 2 LEAVING Dushanbe
+[20:12:11] Train 2 MOVING TO Gissar
+[20:12:11] Train 8 ARRIVED at Dushanbe
+[20:12:13] Train 8 LEAVING Dushanbe
+[20:12:13] Train 8 MOVING TO Gissar
+[20:12:13] Train 7 ARRIVED at Dushanbe
+[20:12:14] Train 7 LEAVING Dushanbe
+[20:12:14] Train 7 MOVING TO Gissar
+[20:12:14] Train 5 ARRIVED at Dushanbe
+[20:12:16] Train 5 LEAVING Dushanbe
+[20:12:16] Train 5 MOVING TO Gissar
+[20:12:16] Train 3 ARRIVED at Dushanbe
+[20:12:17] Train 3 LEAVING Dushanbe
+[20:12:17] Train 3 MOVING TO Gissar
+[20:12:17] Train 6 ARRIVED at Gissar
+[20:12:19] Train 6 LEAVING Gissar
+[20:12:19] Train 6 MOVING TO Regar
+[20:12:19] Train 1 ARRIVED at Gissar
+
+[20:12:20] Train 1 LEAVING Gissar
+[20:12:20] Train 1 STOPPED
+[20:12:20] Train 4 ARRIVED at Gissar
+[20:12:22] Train 4 LEAVING Gissar
+[20:12:22] Train 4 STOPPED
+[20:12:22] Train 2 ARRIVED at Gissar
+[20:12:23] Train 2 LEAVING Gissar
+[20:12:23] Train 2 STOPPED
+[20:12:23] Train 8 ARRIVED at Gissar
+[20:12:24] Train 8 LEAVING Gissar
+[20:12:24] Train 8 STOPPED
+[20:12:24] Train 7 ARRIVED at Gissar
+[20:12:26] Train 7 LEAVING Gissar
+[20:12:26] Train 7 STOPPED
+[20:12:26] Train 5 ARRIVED at Gissar
+[20:12:27] Train 5 LEAVING Gissar
+[20:12:27] Train 5 STOPPED
+[20:12:27] Train 3 ARRIVED at Gissar
+[20:12:29] Train 3 LEAVING Gissar
+[20:12:29] Train 3 STOPPED
+[20:12:29] Train 6 ARRIVED at Regar
+[20:12:31] Train 6 LEAVING Regar
+[20:12:31] Train 6 STOPPED
 Simulation finished!
 ```
 
