@@ -5,6 +5,7 @@
 #include <mutex>
 #include <chrono>
 #include <cstdlib>
+#include <ctime>
 
 using std::cout;
 using std::endl;
@@ -13,6 +14,14 @@ using std::vector;
 
 std::mutex print_lock;
 std::mutex station_lock;
+
+string get_time() {
+    time_t now = time(nullptr);
+    tm* t = localtime(&now);
+    char buf[16];
+    strftime(buf, sizeof(buf), "%H:%M:%S", t);
+    return string(buf);
+}
 
 struct Train {
     int id;
@@ -33,7 +42,8 @@ void worker(Train* t)
 
         {
             std::lock_guard<std::mutex> lk(print_lock);
-            cout << "Train " << t->id << " MOVING TO " << station << endl;
+            cout << "[" << get_time() << "] Train "
+                 << t->id << " MOVING TO " << station << endl;
         }
 
         std::this_thread::sleep_for(std::chrono::milliseconds(rnd(1000, 2000)));
@@ -42,14 +52,16 @@ void worker(Train* t)
 
         {
             std::lock_guard<std::mutex> lk(print_lock);
-            cout << "Train " << t->id << " ARRIVED at " << station << endl;
+            cout << "[" << get_time() << "] Train "
+                 << t->id << " ARRIVED at " << station << endl;
         }
 
         std::this_thread::sleep_for(std::chrono::milliseconds(rnd(1000, 2000)));
 
         {
             std::lock_guard<std::mutex> lk(print_lock);
-            cout << "Train " << t->id << " LEAVING " << station << endl;
+            cout << "[" << get_time() << "] Train "
+                 << t->id << " LEAVING " << station << endl;
         }
 
         station_lock.unlock();
@@ -58,7 +70,7 @@ void worker(Train* t)
     }
 
     std::lock_guard<std::mutex> lk(print_lock);
-    cout << "Train " << t->id << " STOPPED" << endl;
+    cout << "[" << get_time() << "] Train " << t->id << " STOPPED" << endl;
 }
 
 int main() {
@@ -84,10 +96,12 @@ int main() {
     cout << "PRESS ENTER TO STOP..." << endl;
     std::cin.get();
 
-    for (auto* t : trains) t->active = false;
+    for (auto* t : trains)
+        t->active = false;
 
     for (auto& th : threads)
-        if (th.joinable()) th.join();
+        if (th.joinable())
+            th.join();
 
     cout << "Simulation finished!" << endl;
 
