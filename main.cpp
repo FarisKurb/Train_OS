@@ -13,7 +13,6 @@ using std::string;
 using std::vector;
 
 std::mutex print_lock;
-std::mutex station_lock;
 
 string get_time() {
     time_t now = time(nullptr);
@@ -34,7 +33,7 @@ int rnd(int a, int b) {
     return a + (std::rand() % (b - a + 1));
 }
 
-void worker(Train* t)
+void worker(Train* t, vector<std::mutex>& station_mutexes)
 {
     while (t->active)
     {
@@ -48,8 +47,9 @@ void worker(Train* t)
 
         std::this_thread::sleep_for(std::chrono::milliseconds(rnd(1000, 2000)));
 
+        // Блокировка только конкретной станции
         {
-            std::lock_guard<std::mutex> station(station_lock);
+            std::lock_guard<std::mutex> station(station_mutexes[t->index]);
 
             {
                 std::lock_guard<std::mutex> lk(print_lock);
@@ -81,6 +81,9 @@ int main() {
     vector<Train*> trains;
     vector<std::thread> threads;
 
+    // создаём мьютекс для каждой станции
+    vector<std::mutex> station_mutexes(route.size());
+
     for (int i = 1; i <= 8; ++i) {
         Train* t = new Train();
         t->id = i;
@@ -91,7 +94,7 @@ int main() {
     }
 
     for (auto* t : trains)
-        threads.emplace_back(worker, t);
+        threads.emplace_back(worker, t, std::ref(station_mutexes));
 
     cout << "PRESS ENTER TO STOP..." << endl;
     std::cin.get();
