@@ -48,23 +48,23 @@ void worker(Train* t)
 
         std::this_thread::sleep_for(std::chrono::milliseconds(rnd(1000, 2000)));
 
-        station_lock.lock();
-
         {
-            std::lock_guard<std::mutex> lk(print_lock);
-            cout << "[" << get_time() << "] Train "
-                 << t->id << " ARRIVED at " << station << endl;
+            std::lock_guard<std::mutex> station(station_lock);
+
+            {
+                std::lock_guard<std::mutex> lk(print_lock);
+                cout << "[" << get_time() << "] Train "
+                     << t->id << " ARRIVED at " << station << endl;
+            }
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(rnd(1000, 2000)));
+
+            {
+                std::lock_guard<std::mutex> lk(print_lock);
+                cout << "[" << get_time() << "] Train "
+                     << t->id << " LEAVING " << station << endl;
+            }
         }
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(rnd(1000, 2000)));
-
-        {
-            std::lock_guard<std::mutex> lk(print_lock);
-            cout << "[" << get_time() << "] Train "
-                 << t->id << " LEAVING " << station << endl;
-        }
-
-        station_lock.unlock();
 
         t->index = (t->index + 1) % t->route.size();
     }
