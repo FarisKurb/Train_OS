@@ -47,9 +47,8 @@ void worker(Train* t, vector<std::mutex>& station_mutexes)
 
         std::this_thread::sleep_for(std::chrono::milliseconds(rnd(1000, 2000)));
 
-        // Блокировка только конкретной станции
         {
-            std::lock_guard<std::mutex> station(station_mutexes[t->index]);
+            std::lock_guard<std::mutex> station_guard(station_mutexes[t->index]);
 
             {
                 std::lock_guard<std::mutex> lk(print_lock);
@@ -80,8 +79,6 @@ int main() {
 
     vector<Train*> trains;
     vector<std::thread> threads;
-
-    // создаём мьютекс для каждой станции
     vector<std::mutex> station_mutexes(route.size());
 
     for (int i = 1; i <= 8; ++i) {
